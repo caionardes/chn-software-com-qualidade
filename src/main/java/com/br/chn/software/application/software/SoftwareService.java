@@ -8,7 +8,7 @@ public interface SoftwareService {
 
 	String criarSoftware(String nome);
 
-	void adicionarFuncionalidade(IdSoftware idSoftware, String nomeUseCase, String descricao);
+	void adicionarFuncionalidade(IdSoftware idSoftware, String nomeUseCase, String documentacao);
 
 	void registraInicioNovaAtividade(IdSoftware idSoftware, IdProfissional idProfissional, IdFuncionalidade idFuncionalidade);
 

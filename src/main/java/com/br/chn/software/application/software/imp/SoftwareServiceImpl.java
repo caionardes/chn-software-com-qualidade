@@ -32,9 +32,9 @@ public class SoftwareServiceImpl implements SoftwareService {
 	}
 
 	@Override
-	public void adicionarFuncionalidade(IdSoftware idSoftware, String nomeUseCase, String descricao) {
+	public void adicionarFuncionalidade(IdSoftware idSoftware, String nomeUseCase, String documentacao) {
 		Software software = consultaSoftwareExistente(idSoftware);
-		software.adicionarFuncionalidade(nomeUseCase, descricao);
+		software.adicionarFuncionalidade(nomeUseCase, documentacao);
 		softwareRepository.save(software);
 	}
 
