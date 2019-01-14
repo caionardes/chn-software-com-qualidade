@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /software
+    
+spring:
+  data:
+    mongodb:
+      uri: "mongodb://127.0.0.1:27017/chn-software"
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: TRACE    
+    org.springframework.security.oauth2.client.OAuth2RestTemplate: TRACE
+    org.springframework.security: DEBUG
