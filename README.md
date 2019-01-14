@@ -1,4 +1,4 @@
-# Projeto de estudo Domain Driven Disign (DDD)
+# Projeto de estudo prático Domain Driven Design (DDD)
 
 - Stack: Java8, Spring Boot, MongoDB, REST, Swagger-UI.
 
@@ -13,19 +13,23 @@ As operações desta aplicação são baseadas nos seguintes comportamentos:
 	void registraInicioNovaAtividade(IdSoftware idSoftware, IdProfissional idProfissional, IdFuncionalidade idFuncionalidade);
 	void registraConclusaoAtividade(IdSoftware idSoftware, IdProfissional idProfissional, IdFuncionalidade idFuncionalidade); 
 
-Um Software possui Funcionalides que são desenvolvidas por Profissionais em uma linha de produção, de acordo com um fluxo configurado.
-(Atualmente o fluxo está em HardCode, mas já foi criado o FluxoAtividadeRepository para futuro refactor).
+Um "Software" possui "Funcionalidades" que são desenvolvidas por "Profissionais" em uma linha de produção, de acordo com um fluxo configurado.
+<br>(Atualmente o fluxo está em HardCode, mas já foi criado o FluxoAtividadeRepository para futura implementação).
 
-Cada etapa do fluxo deve ser executada por um Profissional com perfil adequado para tal, por exemplo "Analista" faz a analise, "Desenvolvedor" o desenvolvimento e "Testador" os testes.
+Cada etapa da produção deve ser executada por um "Profissional" com perfil adequado para tal, por exemplo "Analista" faz a analise, "Desenvolvedor" o desenvolvimento e "Testador" os testes.
 
-O fluxo começa ao criar um novo Sofware, sem funcionalidades.
-Então, é possível adicionar Funcionalidades ao Software, cada Funcionalidade possui sua especificação assim como seu status de progresso representado por Atividade e HistoricoAtividade. 
+# Fluxo
 
-Em paralelo são cadastrados os Profissionais, cada Profissional possui um conjunto de habilidades chamadas "Skills".
-Os Skills são representações dos papeis dos profissionais de T.I, como Analista, Desenvolvedor, Testador e Apresentador.
+O fluxo começa quando cria-se um novo "Sofware", sem "funcionalidades".
+<br>Então, é possível adicionar "Funcionalidades" ao "Software", cada "Funcionalidade" possui sua "EspecificacaoTecnica" assim como seu status de progresso representado por "Atividade" e "HistoricoAtividade". 
 
-O Profissional pode registrar o inicio da execução da atividade e a conclusão da mesma.
-Quando é feita a conclusão da atividade, a Funcionalidade passa para proxima etapa do fluxo de desenvolvimento.
-Em seguida o sistema notifica os Profissionais com perfil compativeis para dar continuidade no desenvolvimento da Funcionalidade. 
+Em paralelo são cadastrados os "Profissionais" com um conjunto de habilidades chamadas "Skills".
+<br>Os "Skills" são representações dos papeis dos profissionais de T.I, como Analista, Desenvolvedor, Testador e Apresentador.
+
+O "Profissional" pode registrar o inicio da execução da atividade e a conclusão da mesma.
+<br>Quando é feita a conclusão da atividade, a "Funcionalidade" passa para proxima etapa do fluxo de desenvolvimento.
+
+<br>Em seguida o sistema notifica os Profissionais com perfil compativeis para dar continuidade no desenvolvimento da Funcionalidade.
+<br>(Ponto interessante para aplicar Event-Driven)
 
 	Projeto baseado no exemplo: https://github.com/citerus/dddsample-core
