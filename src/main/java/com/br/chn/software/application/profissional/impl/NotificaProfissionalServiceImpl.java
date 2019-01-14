@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.br.chn.software.application.profissional.NotificaProfissionalService;
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.profissional.ProfissionalRepository;
 import com.br.chn.software.domain.model.software.IdFuncionalidade;
 import com.br.chn.software.domain.model.software.IdSoftware;

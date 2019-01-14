@@ -8,10 +8,12 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.util.Assert;
 
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.profissional.IdProfissional;
 import com.br.chn.software.domain.shared.Entity;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -31,6 +33,7 @@ import lombok.ToString;
  * @author caio.nardes
  */
 @ToString
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Software implements Entity<Software> {
 
 	@Id
@@ -38,20 +41,12 @@ public class Software implements Entity<Software> {
 	private String nome;
 	private List<Funcionalidade> funcionalidades;
 
-	private Software() {
-		super();
-	}
-
 	private Software(String nome) {
 		this();
 		this.idSoftware = new IdSoftware(UUID.randomUUID().toString());
 		this.nome = nome;
 		this.funcionalidades = new ArrayList<>();
 	}
-
-	/* *********************** */
-	/* OPERACOES MODIFICADORAS */
-	/* *********************** */
 
 	/** Cria o Software */
 	public static Software criarSoftware(String nome) {
@@ -64,8 +59,14 @@ public class Software implements Entity<Software> {
 	public void adicionarFuncionalidade(String nomeUseCase, String documentacao) {
 		Assert.hasText(nomeUseCase, "O nome do UseCase é obrigatório para especificação do software.");
 		Assert.hasText(documentacao, "A documentação é obrigatória para especificação do software.");
-		
-		funcionalidades.add(Funcionalidade.criarFuncionalidade(EspecificacaoTecnica.criarEspecificacao(nomeUseCase, documentacao)));
+
+		// Conhece todos as funcionalidades, entao pode fazer validacoes que envolva todas elas.
+		Assert.isTrue(funcionalidades.stream()
+				.noneMatch(f -> f.getEspecificacaoTecnica().getNomeUseCase().equals(nomeUseCase)),
+				"Já existe uma funcionalidade para o UseCase informado!");
+
+		funcionalidades.add(
+				Funcionalidade.criarFuncionalidade(EspecificacaoTecnica.criarEspecificacao(nomeUseCase, documentacao)));
 	}
 
 	/** Registra no Software o inicio de uma atividade. */
@@ -88,11 +89,9 @@ public class Software implements Entity<Software> {
 		getFuncionalidadePorId(idFuncionalidade).registraConclusaoAtividade(idProfissional);
 	}
 
-	/* *************************** */
 	/* OPERACOES NAO MODIFICADORAS */
-	/* *************************** */
 
-	/** Expoem o tipo atual de atividade em que uma funcionalidade se encontra. */
+	/** Acessa o tipo de atividade da atividade a ser iniciada. */
 	public TipoDeAtividade proximaAtividadeASerIniciada(IdFuncionalidade idFuncionalidade) {
 		Assert.notNull(idFuncionalidade, "É obrigatório informar a funcionalidade da atividade a ser iniciada.");
 		Assert.notNull(idFuncionalidade.getId(), "É obrigatório informar a funcionalidade da atividade a ser iniciada.");

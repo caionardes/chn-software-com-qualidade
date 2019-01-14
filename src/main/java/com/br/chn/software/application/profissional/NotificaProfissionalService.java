@@ -1,6 +1,6 @@
 package com.br.chn.software.application.profissional;
 
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.software.IdFuncionalidade;
 import com.br.chn.software.domain.model.software.IdSoftware;
 

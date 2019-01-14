@@ -14,9 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.br.chn.software.application.software.SoftwareService;
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.atividade.FluxoAtividade;
 import com.br.chn.software.domain.model.atividade.FluxoAtividadeRepository;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.profissional.ContatoInfo;
 import com.br.chn.software.domain.model.profissional.IdProfissional;
 import com.br.chn.software.domain.model.profissional.Profissional;

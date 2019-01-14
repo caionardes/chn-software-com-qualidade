@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
 import com.br.chn.software.domain.shared.Entity;
 
 import lombok.Getter;

@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.br.chn.software.domain.model.atividade.Atividade;
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.model.software.EspecificacaoTecnica;
 import com.br.chn.software.domain.model.software.Funcionalidade;
 import com.br.chn.software.domain.model.software.IdFuncionalidade;

@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 import com.br.chn.software.domain.shared.Entity;
 
 import lombok.AccessLevel;

@@ -2,7 +2,7 @@ package com.br.chn.software.domain.model.profissional;
 
 import java.util.stream.Stream;
 
-import com.br.chn.software.domain.model.atividade.Atividade.TipoDeAtividade;
+import com.br.chn.software.domain.model.atividade.TipoDeAtividade;
 
 public enum Skill {
 
